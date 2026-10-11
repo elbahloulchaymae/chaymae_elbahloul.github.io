@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chaymae Elbahloul | Data Science & Développement Web</title>
+<meta name="description" content="Portfolio de Chaymae Elbahloul, étudiante en Bachelor Science des Données. Python, SQL, Flask, MySQL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#030014;--card:#0b0820;--cardg:rgba(40,25,90,.35);--line:rgba(139,92,246,.22);--txt:#f3f0ff;--mut:#a79fc4;--btn:#020008;--hdr:rgba(3,0,20,.7);--chip:rgba(255,255,255,.04);--grid:rgba(139,92,246,.06);--h1a:#fff;--h1b:#d9ccff;--g1:rgba(99,60,200,.35);--g2:rgba(60,80,220,.18);--menu:#07041a;--acc:#9c8cff;--sh:rgba(120,80,255,.25);--p1:#6366f1;--p2:#a855f7}
+[data-theme=light]{--bg:#f7f5ff;--card:#fff;--cardg:rgba(237,230,255,.7);--line:rgba(99,60,200,.22);--txt:#1a1433;--mut:#5b5478;--btn:#fff;--hdr:rgba(247,245,255,.85);--chip:rgba(99,60,200,.06);--grid:rgba(99,60,200,.07);--h1a:#1a1433;--h1b:#4b3a9a;--g1:rgba(139,92,246,.22);--g2:rgba(99,102,241,.12);--menu:#fff;--acc:#6d4fe0;--sh:rgba(120,80,255,.15)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:Poppins,Cairo,system-ui,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;overflow-x:hidden;transition:background .3s,color .3s;
+background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:40px 40px}
+[dir=rtl] body{font-family:Cairo,Poppins,system-ui,sans-serif}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(600px 400px at 10% 10%,var(--g1),transparent 70%),radial-gradient(500px 400px at 90% 60%,var(--g2),transparent 70%)}
+a{color:inherit;text-decoration:none}
+.grad{background:linear-gradient(90deg,var(--p1),var(--p2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.wrap{max-width:1100px;margin:auto;padding:0 20px}
+section{padding:80px 0}
+h2{font-size:clamp(1.8rem,5vw,2.6rem);font-weight:700;margin-bottom:8px}
+.sub{color:var(--mut);margin-bottom:36px}
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--hdr);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:10px}
+.logo{font-weight:700;font-size:1.3rem}
+.links{display:flex;gap:26px;list-style:none}
+.links a{font-weight:500;font-size:.9rem;padding:6px 0;border-bottom:2px solid transparent;transition:.25s}
+.links a:hover,.links a.on{color:var(--acc);border-color:#8b5cf6}
+.ctl{display:flex;gap:8px;align-items:center}
+.ctl select,.ctl button{height:38px;border:1px solid var(--line);background:var(--chip);color:var(--txt);border-radius:10px;font:inherit;font-size:.85rem;cursor:pointer;padding:0 10px}
+.ctl select option{background:var(--card);color:var(--txt)}
+.ctl button{width:38px;padding:0;font-size:1rem}
+.burger{display:none}
+@media(max-width:860px){.burger{display:block!important}.links{position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--menu);border-bottom:1px solid var(--line);display:none}.links.open{display:flex}.links a{display:block;padding:14px 20px;border:0}}
+.hero{min-height:100vh;display:flex;align-items:center;padding:110px 0 60px}
+.badge{display:inline-block;padding:8px 18px;border:1px solid var(--line);border-radius:999px;background:var(--chip);color:var(--acc);font-size:.85rem;margin-bottom:18px;box-shadow:0 0 24px var(--sh)}
+h1{font-size:clamp(2.8rem,10vw,5.5rem);line-height:1.1;font-weight:700;letter-spacing:-1px}
+h1 .w{background:linear-gradient(180deg,var(--h1a),var(--h1b));-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
+h1 .grad{display:block}
+.type{font-size:clamp(1.1rem,3vw,1.6rem);font-weight:300;margin:18px 0 12px;min-height:2em}
+.type:after{content:"";display:inline-block;width:2px;height:1.1em;background:#8b5cf6;margin-inline-start:4px;vertical-align:middle;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.pitch{color:var(--mut);max-width:520px;margin-bottom:22px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.chip{padding:8px 18px;border:1px solid var(--line);border-radius:999px;background:var(--chip);font-size:.85rem}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 28px;background:var(--btn);border:1px solid var(--line);border-radius:10px;font-weight:500;font-size:.92rem;box-shadow:0 0 22px var(--sh);transition:.25s;cursor:pointer;word-break:break-all}
+.btn:hover{transform:translateY(-3px);box-shadow:0 0 32px rgba(139,92,246,.5);border-color:#8b5cf6}
+.soc{display:flex;gap:14px}
+.soc a{width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--chip);display:grid;place-items:center;box-shadow:0 0 20px var(--sh);transition:.25s}
+.soc a:hover{transform:translateY(-3px);border-color:#8b5cf6}
+svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.grid{display:grid;gap:18px}
+@media(min-width:760px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+.card{background:linear-gradient(160deg,var(--cardg),var(--card));border:1px solid var(--line);border-radius:16px;padding:24px;transition:.3s}
+.card:hover{transform:translateY(-4px);border-color:#8b5cf6;box-shadow:0 0 30px var(--sh)}
+.card h3{font-size:1.1rem;margin-bottom:4px}
+.meta{color:var(--acc);font-size:.85rem;margin-bottom:10px}
+.card ul{list-style:none;color:var(--mut);font-size:.92rem}
+.card li{padding-inline-start:18px;position:relative;margin:5px 0}
+.card li:before{content:"";position:absolute;inset-inline-start:0;top:.7em;width:6px;height:6px;border-radius:50%;background:var(--p2)}
+.card p{color:var(--mut);font-size:.92rem}
+.tl{border-inline-start:2px solid var(--line);padding-inline-start:22px;display:grid;gap:18px}
+.tl .card{position:relative}
+.tl .card:before{content:"";position:absolute;inset-inline-start:-30px;top:30px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--p2)}
+.about p{color:var(--mut);max-width:760px;margin-bottom:14px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.tags span{padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:var(--chip);font-size:.82rem}
+footer{padding:30px 0;text-align:center;color:var(--mut);font-size:.85rem;border-top:1px solid var(--line)}
+.rv{opacity:0;transform:translateY(20px);transition:.7s}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid #a855f7;outline-offset:3px}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+<a href="#home" class="logo grad">Chaymae</a>
+<ul class="links">
+<li><a href="#home" class="on" data-i18n="n_home">Accueil</a></li>
+<li><a href="#about" data-i18n="n_about">À propos</a></li>
+<li><a href="#experience" data-i18n="n_exp">Expérience</a></li>
+<li><a href="#projects" data-i18n="n_proj">Projets</a></li>
+<li><a href="#skills" data-i18n="n_skills">Compétences</a></li>
+<li><a href="#contact" data-i18n="n_contact">Contact</a></li>
+</ul>
+<div class="ctl">
+<select id="lang" aria-label="Langue / Language / اللغة"><option value="fr">Français</option><option value="en">English</option><option value="ar">العربية</option></select>
+<button id="theme" aria-label="Thème / Theme">☾</button>
+<button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
+</div></nav></div></header>
+
+<main>
+<section class="hero" id="home"><div class="wrap">
+<span class="badge" data-i18n="badge">Recherche un stage de 3 mois</span>
+<h1><span class="w">Data Science</span><span class="grad" data-i18n="h1b">&amp; Développeuse Web</span></h1>
+<p class="type" id="type"></p>
+<p class="pitch" data-i18n="pitch">Je conçois des applications web et des analyses de données qui répondent à des besoins réels.</p>
+<div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Flask</span><span class="chip">MySQL</span><span class="chip">Flutter</span></div>
+<div class="btns">
+<a class="btn" href="#projects"><span data-i18n="btn_proj">Projets</span><svg class="i" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+<a class="btn" href="#contact"><span data-i18n="btn_contact">Contact</span><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+</div>
+<div class="soc">
+<a href="https://github.com/elbahloulchaymae" target="_blank" rel="noopener" aria-label="GitHub"><svg class="i" viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a>
+<a href="https://www.linkedin.com/in/chaymae-elbahloul-20043a333" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg></a>
+<a href="mailto:elbahloulchaymae873@gmail.com" aria-label="Email"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+</div>
+</div></section>
+
+<section id="about"><div class="wrap about rv">
+<h2 data-i18n="t_about">À <span class="grad">propos</span></h2>
+<p class="sub" data-i18n="sub_about">Étudiante en Bachelor Science des Données</p>
+<p data-i18n="p1">Titulaire d'un DUT en Ingénierie des Données obtenu à l'École Supérieure de Technologie d'El Kelaa des Sraghna, je possède des compétences en Python, SQL, analyse et visualisation des données, ainsi qu'en développement web avec Flask et MySQL.</p>
+<p data-i18n="p2">Mes stages m'ont permis de participer à la conception et au développement d'applications web répondant à des besoins réels. Je cherche un stage technique de 3 mois pour mettre mes compétences en pratique et approfondir mes connaissances en Data Science, Data Engineering et développement logiciel.</p>
+<h3 style="margin:30px 0 14px" data-i18n="t_edu">Formation</h3>
+<div class="grid g2">
+<div class="card"><h3 data-i18n="bach_t">Bachelor en Science des Données</h3><div class="meta" data-i18n="bach_m">2026 – 2027 (en cours)</div><p data-i18n="school">École Supérieure de Technologie – El Kelaa des Sraghna</p></div>
+<div class="card"><h3 data-i18n="dut_t">DUT – Ingénierie des Données</h3><div class="meta">2024 – 2026</div><p data-i18n="school">École Supérieure de Technologie – El Kelaa des Sraghna</p>
+<div class="tags"><span data-i18n="m1">Machine Learning</span><span data-i18n="m2">Analyse et visualisation de données</span><span data-i18n="m3">Programmation (Python)</span><span data-i18n="m4">Big Data (Hadoop)</span><span data-i18n="m5">Data Mining</span></div></div>
+</div></div></section>
+
+<section id="experience"><div class="wrap rv">
+<h2 data-i18n="t_exp"><span class="grad">Expérience</span></h2>
+<p class="sub" data-i18n="sub_exp">Stages</p>
+<div class="tl">
+<div class="card"><h3 data-i18n="rbs_t">Stage de fin d'études – RBS Intervention</h3><div class="meta" data-i18n="rbs_m">Casablanca · Avril 2026 – Juin 2026 (2 mois)</div>
+<p style="margin-bottom:8px" data-i18n="rbs_d">Développement d'une plateforme web de gestion de sécurité et de suivi des agents terrain.</p>
+<ul><li data-i18n="rbs1">Analyse des besoins de l'entreprise et rédaction du cahier des besoins</li><li data-i18n="rbs2">Conception de l'architecture de l'application</li><li data-i18n="rbs3">Backend avec Python et Flask, base de données MySQL</li><li data-i18n="rbs4">Interfaces en HTML, CSS et JavaScript</li><li data-i18n="rbs5">Gestion des agents, superviseurs et patrouilles</li><li data-i18n="rbs6">Suivi des agents et gestion des incidents</li><li data-i18n="rbs7">Tests, correction des bugs et optimisation des performances</li></ul></div>
+<div class="card"><h3 data-i18n="opt_t">Stage d'observation – Optifak</h3><div class="meta" data-i18n="opt_m">Durée : 1 mois</div>
+<p style="margin-bottom:8px" data-i18n="opt_d">Conception et développement d'une application web de gestion des commandes clients.</p>
+<ul><li data-i18n="opt1">Backend avec Python et Flask, base de données MySQL</li><li data-i18n="opt2">Frontend avec HTML et CSS</li><li data-i18n="opt3">Gestion des produits et des commandes, comptes utilisateurs</li><li data-i18n="opt4">Digitalisation du processus de commande auparavant réalisé par téléphone</li></ul></div>
+</div></div></section>
+
+<section id="projects"><div class="wrap rv">
+<h2 data-i18n="t_proj">Projets <span class="grad">académiques</span></h2>
+<p class="sub" data-i18n="sub_proj">Travaux réalisés pendant la formation</p>
+<div class="grid g2">
+<div class="card"><h3 data-i18n="sh_t">Application mobile SmartHealth (PFE)</h3><div class="meta" data-i18n="sh_m">Application mobile · Firebase · ESP8266 · IoT</div><p data-i18n="sh_d">Suivi en temps réel des paramètres vitaux, consultation de l'historique des mesures et suivi de proches. Intégration de Firebase et de capteurs IoT via ESP8266.</p></div>
+<div class="card"><h3 data-i18n="gtk_t">Application de gestion des étudiants</h3><div class="meta">C · GTK · SQL</div><p data-i18n="gtk_d">Application en C avec interface graphique GTK pour gérer les inscriptions, les notes et les absences, avec stockage et manipulation des données dans une base SQL.</p></div>
+</div>
+<div class="btns" style="margin-top:24px"><a class="btn" href="https://github.com/elbahloulchaymae" target="_blank" rel="noopener">GitHub <svg class="i" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+</div></section>
+
+<section id="skills"><div class="wrap rv">
+<h2 data-i18n="t_skills"><span class="grad">Compétences</span></h2>
+<p class="sub" data-i18n="sub_skills">Langages, outils et domaines</p>
+<div class="grid g3">
+<div class="card"><h3 data-i18n="s_lang">Langages de programmation</h3><div class="tags"><span>Python</span><span>SQL</span><span>C</span></div></div>
+<div class="card"><h3 data-i18n="s_web">Développement web</h3><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></div>
+<div class="card"><h3>Data Science</h3><div class="tags"><span data-i18n="ds1">Analyse de données</span><span data-i18n="ds2">Visualisation de données</span><span data-i18n="ds3">Machine Learning</span><span data-i18n="ds4">Data Mining</span><span data-i18n="ds5">Big Data</span></div></div>
+<div class="card"><h3 data-i18n="s_tools">Outils &amp; technologies</h3><div class="tags"><span>Power BI</span><span>Flask</span><span>Flutter</span><span>MySQL</span><span>Git/GitHub</span><span>Hadoop</span></div></div>
+<div class="card"><h3 data-i18n="s_libs">Bibliothèques Python</h3><div class="tags"><span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span></div></div>
+<div class="card"><h3 data-i18n="s_langs">Langues</h3><div class="tags"><span data-i18n="l1">Arabe : langue maternelle</span><span data-i18n="l2">Français : intermédiaire</span><span data-i18n="l3">Anglais : intermédiaire</span></div></div>
+</div></div></section>
+
+<section id="contact"><div class="wrap rv">
+<h2 data-i18n="t_contact">Me <span class="grad">contacter</span></h2>
+<p class="sub" data-i18n="sub_contact">Disponible pour un stage technique de 3 mois.</p>
+<div class="btns">
+<a class="btn" href="mailto:elbahloulchaymae873@gmail.com"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>elbahloulchaymae873@gmail.com</a>
+<a class="btn" href="https://www.linkedin.com/in/chaymae-elbahloul-20043a333" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg>LinkedIn</a>
+<a class="btn" href="https://github.com/elbahloulchaymae" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a>
+</div>
+<p class="sub" data-i18n="loc">El Kelaa des Sraghna, Maroc</p>
+</div></section>
+</main>
+<footer>© <span id="y"></span> Chaymae Elbahloul</footer>
+
+<script>
+var W={fr:['Étudiante en Bachelor Science des Données','Diplômée DUT – Ingénierie des Données'],en:['Bachelor student in Data Science','DUT graduate – Data Engineering'],ar:['طالبة في الإجازة في علم البيانات','حاصلة على دبلوم DUT في هندسة البيانات']};
+var T={en:{n_home:'Home',n_about:'About',n_exp:'Experience',n_proj:'Projects',n_skills:'Skills',n_contact:'Contact',badge:'Looking for a 3-month technical internship',h1b:'&amp; Web Developer',pitch:'I build web applications and data analyses that meet real needs.',btn_proj:'Projects',btn_contact:'Contact',
+t_about:'About <span class="grad">me</span>',sub_about:'Bachelor student in Data Science',p1:'I hold a DUT in Data Engineering from the École Supérieure de Technologie of El Kelaa des Sraghna. I have skills in Python, SQL, data analysis and visualization, as well as web development with Flask and MySQL.',p2:'My internships let me take part in the design and development of web applications that answer real needs. I am looking for a 3-month technical internship to put my skills into practice and deepen my knowledge of Data Science, Data Engineering and software development.',
+t_edu:'Education',bach_t:'Bachelor in Data Science',bach_m:'2026 – 2027 (in progress)',school:'École Supérieure de Technologie – El Kelaa des Sraghna',dut_t:'DUT – Data Engineering',m1:'Machine Learning',m2:'Data analysis and visualization',m3:'Programming (Python)',m4:'Big Data (Hadoop)',m5:'Data Mining',
+t_exp:'<span class="grad">Experience</span>',sub_exp:'Internships',rbs_t:'End-of-studies internship – RBS Intervention',rbs_m:'Casablanca · April 2026 – June 2026 (2 months)',rbs_d:'Development of a web platform for security management and field agent tracking.',rbs1:'Analysis of the company\'s needs and writing of the requirements document',rbs2:'Design of the application architecture',rbs3:'Backend with Python and Flask, MySQL database',rbs4:'Interfaces in HTML, CSS and JavaScript',rbs5:'Management of agents, supervisors and patrols',rbs6:'Agent tracking and incident management',rbs7:'Testing, bug fixing and performance optimization',
+opt_t:'Observation internship – Optifak',opt_m:'Duration: 1 month',opt_d:'Design and development of a web application for managing customer orders.',opt1:'Backend with Python and Flask, MySQL database',opt2:'Frontend with HTML and CSS',opt3:'Product and order management, user accounts',opt4:'Digitalization of the ordering process, previously done by phone',
+t_proj:'Academic <span class="grad">projects</span>',sub_proj:'Work done during my studies',sh_t:'SmartHealth mobile app (final project)',sh_m:'Mobile app · Firebase · ESP8266 · IoT',sh_d:'Real-time monitoring of vital signs, access to the measurement history and tracking of relatives. Integration of Firebase and IoT sensors through ESP8266.',gtk_t:'Student management application',gtk_d:'C application with a GTK graphical interface to manage enrollments, grades and absences, with data stored and handled in a SQL database.',
+t_skills:'<span class="grad">Skills</span>',sub_skills:'Languages, tools and fields',s_lang:'Programming languages',s_web:'Web development',ds1:'Data analysis',ds2:'Data visualization',ds3:'Machine Learning',ds4:'Data Mining',ds5:'Big Data',s_tools:'Tools &amp; technologies',s_libs:'Python libraries',s_langs:'Languages',l1:'Arabic: native',l2:'French: intermediate',l3:'English: intermediate',
+t_contact:'Get in <span class="grad">touch</span>',sub_contact:'Available for a 3-month technical internship.',loc:'El Kelaa des Sraghna, Morocco'},
+ar:{n_home:'الرئيسية',n_about:'نبذة عني',n_exp:'الخبرة',n_proj:'المشاريع',n_skills:'المهارات',n_contact:'تواصل',badge:'أبحث عن تدريب تقني لمدة 3 أشهر',h1b:'&amp; تطوير الويب',pitch:'أصمّم تطبيقات ويب وتحليلات بيانات تلبّي احتياجات حقيقية.',btn_proj:'المشاريع',btn_contact:'تواصل',
+t_about:'نبذة <span class="grad">عني</span>',sub_about:'طالبة في الإجازة في علم البيانات',p1:'حاصلة على دبلوم DUT في هندسة البيانات من المدرسة العليا للتكنولوجيا بقلعة السراغنة، أمتلك مهارات في Python وSQL وتحليل البيانات وتصويرها، إضافة إلى تطوير الويب باستخدام Flask وMySQL.',p2:'مكّنتني تدريباتي من المشاركة في تصميم وتطوير تطبيقات ويب تلبّي احتياجات حقيقية. أبحث عن تدريب تقني لمدة 3 أشهر لتطبيق مهاراتي وتعميق معارفي في علم البيانات وهندسة البيانات وتطوير البرمجيات.',
+t_edu:'التكوين',bach_t:'الإجازة في علم البيانات',bach_m:'2026 – 2027 (جارية)',school:'المدرسة العليا للتكنولوجيا – قلعة السراغنة',dut_t:'DUT – هندسة البيانات',m1:'التعلم الآلي',m2:'تحليل البيانات وتصويرها',m3:'البرمجة (Python)',m4:'البيانات الضخمة (Hadoop)',m5:'التنقيب في البيانات',
+t_exp:'<span class="grad">الخبرة</span>',sub_exp:'التدريبات',rbs_t:'تدريب نهاية الدراسة – RBS Intervention',rbs_m:'الدار البيضاء · أبريل 2026 – يونيو 2026 (شهران)',rbs_d:'تطوير منصة ويب لإدارة الأمن وتتبع الأعوان الميدانيين.',rbs1:'تحليل احتياجات الشركة وإعداد دفتر التحملات',rbs2:'تصميم بنية التطبيق',rbs3:'الواجهة الخلفية بـ Python وFlask وقاعدة بيانات MySQL',rbs4:'الواجهات بـ HTML وCSS وJavaScript',rbs5:'إدارة الأعوان والمشرفين والدوريات',rbs6:'تتبع الأعوان وإدارة الحوادث',rbs7:'الاختبارات وإصلاح الأخطاء وتحسين الأداء',
+opt_t:'تدريب ملاحظة – Optifak',opt_m:'المدة: شهر واحد',opt_d:'تصميم وتطوير تطبيق ويب لإدارة طلبات الزبناء.',opt1:'الواجهة الخلفية بـ Python وFlask وقاعدة بيانات MySQL',opt2:'الواجهة الأمامية بـ HTML وCSS',opt3:'إدارة المنتجات والطلبات وحسابات المستخدمين',opt4:'رقمنة مسار الطلب الذي كان يتم سابقًا عبر الهاتف',
+t_proj:'المشاريع <span class="grad">الأكاديمية</span>',sub_proj:'أعمال أُنجزت خلال التكوين',sh_t:'تطبيق SmartHealth (مشروع نهاية الدراسة)',sh_m:'تطبيق موبايل · Firebase · ESP8266 · IoT',sh_d:'تتبع المؤشرات الحيوية في الوقت الفعلي، واستشارة سجل القياسات، ومتابعة الأقارب. دمج Firebase وحساسات IoT عبر ESP8266.',gtk_t:'تطبيق لإدارة الطلبة',gtk_d:'تطبيق بلغة C بواجهة رسومية GTK لإدارة التسجيلات والنقط والغيابات، مع تخزين البيانات ومعالجتها في قاعدة SQL.',
+t_skills:'<span class="grad">المهارات</span>',sub_skills:'اللغات والأدوات والمجالات',s_lang:'لغات البرمجة',s_web:'تطوير الويب',ds1:'تحليل البيانات',ds2:'تصوير البيانات',ds3:'التعلم الآلي',ds4:'التنقيب في البيانات',ds5:'البيانات الضخمة',s_tools:'الأدوات والتقنيات',s_libs:'مكتبات Python',s_langs:'اللغات',l1:'العربية: اللغة الأم',l2:'الفرنسية: متوسط',l3:'الإنجليزية: متوسط',
+t_contact:'<span class="grad">تواصل</span> معي',sub_contact:'متاحة لتدريب تقني لمدة 3 أشهر.',loc:'قلعة السراغنة، المغرب'}};
+var TT={fr:'Chaymae Elbahloul | Data Science & Développement Web',en:'Chaymae Elbahloul | Data Science & Web Development',ar:'شيماء البهلول | علم البيانات وتطوير الويب'};
+var $=function(s){return document.querySelectorAll(s)},root=document.documentElement,lang='fr',gen=0,tEl=document.getElementById('type');
+function save(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function load(k){try{return localStorage.getItem(k)}catch(e){return null}}
+document.getElementById('y').textContent=new Date().getFullYear();
+/* typing */
+function startType(){gen++;var g=gen,ws=W[lang],wi=0,ci=0,del=false;
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){tEl.textContent=ws[0];return}
+(function tick(){if(g!==gen)return;var w=ws[wi];tEl.textContent=w.slice(0,ci);
+if(!del&&ci<w.length){ci++;setTimeout(tick,60)}else if(!del){del=true;setTimeout(tick,1600)}
+else if(ci>0){ci--;setTimeout(tick,30)}else{del=false;wi=(wi+1)%ws.length;setTimeout(tick,300)}})()}
+/* language */
+function setLang(l){lang=l;root.lang=l;root.dir=l==='ar'?'rtl':'ltr';document.title=TT[l];save('lang',l);
+document.getElementById('lang').value=l;
+$('[data-i18n]').forEach(function(el){if(el._o===undefined)el._o=el.innerHTML;var k=el.getAttribute('data-i18n');el.innerHTML=(l==='fr'||!T[l][k])?el._o:T[l][k]});
+startType()}
+document.getElementById('lang').onchange=function(){setLang(this.value)};
+/* theme */
+var tb=document.getElementById('theme');
+function setTheme(t){root.setAttribute('data-theme',t);tb.textContent=t==='dark'?'☾':'☀';save('theme',t)}
+tb.onclick=function(){setTheme(root.getAttribute('data-theme')==='dark'?'light':'dark')};
+/* menu */
+var b=document.querySelector('.burger'),l=document.querySelector('.links');
+b.onclick=function(){var o=l.classList.toggle('open');b.setAttribute('aria-expanded',o)};
+l.onclick=function(){l.classList.remove('open')};
+/* reveal + active link */
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('in')})},{threshold:.1});
+$('.rv').forEach(function(n){io.observe(n)});
+var as=$('.links a'),so=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)as.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+x.target.id)})})},{rootMargin:'-40% 0px -55% 0px'});
+$('section[id]').forEach(function(s){so.observe(s)});
+/* init */
+setTheme(load('theme')==='light'?'light':'dark');
+setLang(['fr','en','ar'].indexOf(load('lang'))>-1?load('lang'):'fr');
+</script>
+</body>
+</html>
